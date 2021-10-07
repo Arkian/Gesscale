@@ -1,0 +1,14 @@
+Dataset:
+--------------
+- The used dataset is a part of NewYork City Taxi trips.
+- The full dataset is available here:
+     - https://uofi.app.box.com/v/NYCtaxidata
+
+- We have used the first two days of May, 2013.
+
+- “converTrips.sh” is useful for converting the raw data to the structured records with fields of “START”/”END”.
+
+- “SelectTrips.sh” is useful for selecting the records based on more details, and creating new compressed files which will be used by the application.
+
+- To reference the dataset and read more details about it, “New York City Taxi Data 2010-2013.pdf” is useful.
+

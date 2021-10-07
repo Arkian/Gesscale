@@ -1,0 +1,20 @@
+Flink Application:
+-----------------------
+- The utilizations files have been extracted from official flink examples provided by Ververica.
+
+- The used version of flink is 1.12.0. For updating with a new version, you need to update the pom.xml file.
+
+- There is a simple application which works  based on the dataset. 
+
+The application works as follows:
+
+- It reads every record from the dataset, and compares the location (lat,lon) of every START record with three predefined locations (attraction) in NewYork City, and then calculates the Euclidean distance with those places and finds the nearest one.
+
+- “MyUseCase1.java” is the simple/pure version of the application.
+
+- “UseCase1WithFibo.java” has a Fibonacci function in addition which is used to tune complexity of the application.
+
+- “FlinkDataProducer.java” and “UC1FiboKafkaConsumer.java” are the Kafka-based implementation of the application, where FlinkDataProducer read dataset and write records with defined speed/rate (by SpeedFactor) on Kafka topic, and UC1FiboKafkaConsumer is the application which reads records from Kafka topic and run the core of application.
+
+
+- Note that, for submitting the application/job in flink you need to creat an artifact from the application and submit it to Flink.
