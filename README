@@ -1,0 +1,37 @@
+Gesscale:
+Gesscale (GEo-distributed Stream autoSCALEr) is an auto-scaler for stream processing applications in geo-distributed environments such as Fogs. Gesscale continuously monitors the workload and performance of the running system, and dynamically adds or removes replicas to/from individual stream processing operators, to maintain a sufficient Maximum Sustainable Throughput (MST) while using no more resources than necessary. MST is a standard measure of the stream processing system's capacity to process incoming data with no undue queuing delay. 
+
+Gesscale relies on a performance model (extracted from Gesbench package) which gives precise estimates of the resulting performance from any potential reconfiguration. This allows Gesscale to reduce the number of reconfigurations. This is particularly important when scaling the system down, as a good performance model is the only way to accurately identify the moment when resources may be removed without violating the MST requirement.
+
+Gesscale's experiments are based on the Gesbed Fog computing testbed.
+
+
+Baselines:
+- AlphaModel baseline; is a simplified version of Gesscale which only uses alpha in the performance model.
+- ThresholdBased baseline; is an autoscaler which works based on CPU utilization thresholds.
+
+
+
+Pre-process:
+Before running the autoscalers need to do the followings:
+
+- Updating Host IP (where Kafka will be run) and cluster IP (where Flink will be run) in the script.
+
+- The name/path of Producer Job, Consumer Job, and dataset (if they have been changed).
+
+- Be sure Gnuplot has been installed on the current machine.
+
+- Set the maximum number of TaskManagers (“TMNumber”) (it depends on the number of nodes in the cluster).
+
+- Set the starting parallelism for the job (“StartPara”).
+
+- Updating the resources and Network latencies in “ResourceManager.sh”.
+
+- Adding Network Latencies to the nodes of the cluster.
+
+- Deploying Flink JobManager and TaskManagers in the cluster.
+
+- Deploying MinIO in case of using savepointing and checkpointing.
+
+
+
